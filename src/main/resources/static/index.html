@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>1:1 화상 채팅</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="annyang.js"></script>
+=    <script src="client.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="button-container">
+        <div class="video-container">
+            <!--WebRTC related code-->
+            <div class="video-box">
+                <div class="video-header">나</div>
+                <video height="480" width="640" id="localVideo" autoplay playsinline></video>
+            </div>
+            <div class="video-box">
+                <div class="video-header">상대</div>
+                <video height="480" width="640" id="remoteVideo" autoplay playsinline></video>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick='createOffer()'>Create Offer</button>
+        <button type="button" class="btn btn-primary" onclick='sendVideo()'>Send Video</button>
+    </div>
+    <div class="chat-container">
+        <h2>채팅창</h2>
+        <div class="messages"></div>
+
+        <div class="input-box">
+            <input id="messageInput" type="text" class="form-control"
+                   placeholder="message" style="width:70%">
+            <button type="button" class="btn btn-primary" onclick='sendMessage()'>SEND Message</button>
+        </div>
+    </div>
+</div>
+<div class="stt-container">
+    <span class="stt-text">상대방 음성: </span>
+    <span class="stt-text" id="result"></span>
+</div>
+
+</body>
+</html>
